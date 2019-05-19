@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
 	authorize_resource
 
-	def index
+	def show
 		@activity = Activity.find(params[:id])
 		if user_signed_in?
 			if UserActivity.where(user_id: current_user.id,activity_id: @activity.id) != []
@@ -29,12 +29,14 @@ class ActivitiesController < ApplicationController
 	end
 
 	def edit	
-		@activity = Activity.where(id: params[:activity_id]).first
+		@activity = Activity.find(params[:id])
 		@categories = Category.all
+		
 	end
 
 	def update
-		@activity = Activity.where(id: params[:activity_id]).first
+		@activity = Activity.find(params[:id])
+		@activity.update(name: params[:activity][:name])
 		@activity.update(author: params[:activity][:author])
 		@activity.update(category_id: params[:activity][:category_id])
 		@activity.update(photo: params[:activity][:photo])

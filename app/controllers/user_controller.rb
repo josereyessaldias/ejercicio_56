@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-  authorize_resource :class => UsersController
+class UserController < ApplicationController
+  authorize_resource :class => UserController
 
   def show
   	@user = User.find(params[:id])

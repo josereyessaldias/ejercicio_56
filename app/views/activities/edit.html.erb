@@ -1,8 +1,11 @@
 <h2>Editar Actividad </h2>
 <br>
 <% if user_signed_in? %>
-	<%= form_with model: Activity, url: update_activity_path(@activity), method: :patch, local: true do |f| %>
+	<%= form_with model: @activity, url: activity_path(@activity), method: :patch, local: true do |f| %>
 		
+		<%= f.label :name %>
+		<%= f.text_field :name %>	<br>
+
 		<%= f.label :author %>
 		<%= f.text_field :author %>	<br>
 

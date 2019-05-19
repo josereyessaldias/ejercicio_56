@@ -12,9 +12,9 @@ class UserActivitiesController < ApplicationController
   end
 
   def edit
-  	@user = User.find(params[:user_id])
-    @activity = UserActivity.where(user_id: params[:user_id], activity_id: params[:activity_id]).first
-    authorize! :edit, @activity
+  	@user = User.find(current_user.id)
+    @user_activity = UserActivity.find(params[:id])
+    authorize! :edit, @user_activity
   end
 
 

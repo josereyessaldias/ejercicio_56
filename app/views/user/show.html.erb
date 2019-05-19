@@ -29,14 +29,14 @@
 								<% end %><br>
 								
 								<% if can?(:destroy, act) %>
-									<%= link_to 'Editar', edit_user_activity_path(@user,act.activity.id) %>
+									<%= link_to 'Editar', edit_user_activity_path(act) %>
 									<%= link_to 'Borrar actividad', destroy_activity_path(@user,act.activity.id), method: :delete %>
 								<% end %>
 							<% else %>
 								<img src="<%= act.activity.photo.thumb %>" >
 								<%= link_to act.activity.name, activity_path(act.activity.id) %> | <%= category.participio %> el <%= act.start.strftime("%F") %> | registrado <%= time_ago_in_words(act.activity.created_at) %> ago
 								<% if can?(:destroy, act) %>
-									<%= link_to 'Editar', edit_user_activity_path(@user,act.activity.id) %>
+									<%= link_to 'Editar', edit_user_activity_path(act) %>
 									<%= link_to 'Borrar actividad', destroy_activity_path(@user,act.activity.id), method: :delete %>
 								<% end %>
 							<% end %>
@@ -67,14 +67,14 @@
 								<% end %><br>
 								
 								<% if can?(:destroy, act) %>
-									<%= link_to 'Editar', edit_user_activity_path(@user,act.activity.id) %>
+									<%= link_to 'Editar', edit_user_activity_path(act) %>
 									<%= link_to 'Borrar actividad', destroy_activity_path(@user,act.activity.id), method: :delete %>
 								<% end %>
 							<% else %>
 								<img src="<%= act.activity.photo.thumb %>" >
 								<%= link_to act.activity.name, activity_path(act.activity.id) %> | <%= category.participio %> el <%= act.start.strftime("%F") %> | registrado <%= time_ago_in_words(act.activity.created_at) %> ago
 								<% if can?(:destroy, act) %>
-									<%= link_to 'Editar', edit_user_activity_path(@user,act.activity.id) %>
+									<%= link_to 'Editar', edit_user_activity_path(act) %>
 									<%= link_to 'Borrar actividad', destroy_activity_path(@user,act.activity.id), method: :delete %>
 								<% end %>
 							<% end %>
