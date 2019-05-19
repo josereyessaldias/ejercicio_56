@@ -1,0 +1,15 @@
+<h2>Editar actividad <%= @activity.activity.name %> de <%= @user.name %></h2>
+
+
+<% if user_signed_in? && can?(:update, @activity) %>
+	<%= form_with model: UserActivity, url: update_activity_path(@user), method: :patch, local: true do |f| %>
+
+		<%= f.label :start %>
+		<%= f.text_field :start %>		
+
+		<%= f.submit "Enviar" %>
+
+	<% end %>
+<% end %>
+
+<br><br>
