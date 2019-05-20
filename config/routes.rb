@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :collections, only: [:show]
+  resources :user_collections, only: [:create]
   resources :user, only: [:show]
   resources :activities, only: [:create, :new, :show, :edit, :update]
   resources :user_activities, only: [:create, :edit, :update, :destroy]

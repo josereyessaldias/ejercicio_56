@@ -17,6 +17,7 @@ class Ability
         can [:manage], [Billing, PromoteActivity], user_id: user.id
         can [:create,:destroy], Contact, user_id: user.id
         can [:show], Collection
+        can [:create], UserCollection, user_id: user.id
 
         
         

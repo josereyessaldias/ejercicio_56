@@ -1,7 +1,11 @@
 
-  <% @activities.each do |activity| %>
+  <% @entities.each do |entity| %>
   <ul class="resultado_fila">
-  	<li><%= link_to activity.name, activity_path(activity.id) %> | <%= activity.category.name %></li>
+  	<%if entity.class == Activity %>
+  		<li><%= link_to entity.name, activity_path(entity.id) %> | <%= entity.category.name %></li>
+  	<% else %>
+  		<li><%= link_to entity.name, collection_path(entity.id) %> | Collection </li>
+  	<% end %>
   </ul>
   <% end %>
 

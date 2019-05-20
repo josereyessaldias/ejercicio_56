@@ -5,9 +5,9 @@ class PagesController < ApplicationController
     @collections = Collection.all
 
     if params[:q].present?
-      @activities = Activity.where('name like ?', "%#{params[:q]}%")
+      @entities = Activity.where('name like ?', "%#{params[:q]}%") + Collection.where('name like ?', "%#{params[:q]}%")
     else
-      @activities = []
+      @entities = []
     end
 
     @users = User.all

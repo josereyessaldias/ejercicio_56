@@ -7,7 +7,8 @@
 				<img src="<%= @collection.photo.normal %>">
 			</div>
 
-			<div class="col-6 mt-2">
+			<div class="col-6">
+				<%= link_to 'Seguir esta Colección', user_collections_path(:collection_id => @collection.id), method: :post, :class => 'btn btn-info'%><br><br>
 				<h5>Actividades en esta colección:</h5>
 				<ol>
 					<% @collection.activities.each do |activity| %>
