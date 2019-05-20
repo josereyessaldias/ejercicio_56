@@ -5,11 +5,11 @@ class Ability
     # Define abilities for the passed in user here. For example:
     
     if user.nil?
-        can [:index, :user_page, :politica, :show], :all
+        can [:index, :politica, :show], :all
     elsif user.admin?
         can [:manage], :all
     elsif user.player?
-        can [:index, :user_page, :user_calendar, :show], :all
+        can [:index, :user_calendar, :show], :all
         can [:edit, :create, :destroy, :update, :update_calendar], UserActivity, user_id: user.id
         can [:create], Activity, user_id: user.id
         can [:update, :edit], Activity, owner_id: user.id

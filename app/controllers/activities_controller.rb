@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
 		if user_signed_in?
 			if UserActivity.where(user_id: current_user.id,activity_id: @activity.id) != []
 				@registrada = true
+				@user_activity = UserActivity.where(user_id: current_user.id,activity_id: @activity.id).first
 			else
 				@registrada = false
 			end

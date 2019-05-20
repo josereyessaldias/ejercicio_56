@@ -5,9 +5,9 @@
 <br>
 
 <% if user_signed_in? && @following %>
-	<%=link_to "Dejar de seguir a #{@user.name}", destroy_contacts_path(@user.id), method: :delete, :class => 'btn btn-info' %>
+	<%=link_to "Dejar de seguir a #{@user.name}", contact_path(:id => @user.id), method: :delete, :class => 'btn btn-info' %>
 <% elsif user_signed_in? && @user.id != current_user.id %>
-	<%=link_to "Seguir a #{@user.name}", contacts_path(@user.id), method: :post, :class => 'btn btn-info' %>
+	<%=link_to "Seguir a #{@user.name}", contacts_path(:id => @user.id), method: :post, :class => 'btn btn-info' %>
 <% end %>
 
 <br><br>
@@ -30,14 +30,14 @@
 								
 								<% if can?(:destroy, act) %>
 									<%= link_to 'Editar', edit_user_activity_path(act) %>
-									<%= link_to 'Borrar actividad', destroy_activity_path(@user,act.activity.id), method: :delete %>
+									<%= link_to 'Borrar actividad', user_activity_path(act), method: :delete %>
 								<% end %>
 							<% else %>
 								<img src="<%= act.activity.photo.thumb %>" >
 								<%= link_to act.activity.name, activity_path(act.activity.id) %> | <%= category.participio %> el <%= act.start.strftime("%F") %> | registrado <%= time_ago_in_words(act.activity.created_at) %> ago
 								<% if can?(:destroy, act) %>
 									<%= link_to 'Editar', edit_user_activity_path(act) %>
-									<%= link_to 'Borrar actividad', destroy_activity_path(@user,act.activity.id), method: :delete %>
+									<%= link_to 'Borrar actividad', user_activity_path(act), method: :delete %>
 								<% end %>
 							<% end %>
 							
@@ -68,14 +68,14 @@
 								
 								<% if can?(:destroy, act) %>
 									<%= link_to 'Editar', edit_user_activity_path(act) %>
-									<%= link_to 'Borrar actividad', destroy_activity_path(@user,act.activity.id), method: :delete %>
+									<%= link_to 'Borrar actividad', user_activity_path(act), method: :delete %>
 								<% end %>
 							<% else %>
 								<img src="<%= act.activity.photo.thumb %>" >
-								<%= link_to act.activity.name, activity_path(act.activity.id) %> | <%= category.participio %> el <%= act.start.strftime("%F") %> | registrado <%= time_ago_in_words(act.activity.created_at) %> ago
+								<%= link_to act.activity.name, activity_path(act.activity.id) %> | <%= category.futuro %> el <%= act.start.strftime("%F") %> | registrado el <%= time_ago_in_words(act.activity.created_at) %> ago
 								<% if can?(:destroy, act) %>
 									<%= link_to 'Editar', edit_user_activity_path(act) %>
-									<%= link_to 'Borrar actividad', destroy_activity_path(@user,act.activity.id), method: :delete %>
+									<%= link_to 'Borrar actividad', user_activity_path(act), method: :delete %>
 								<% end %>
 							<% end %>
 							

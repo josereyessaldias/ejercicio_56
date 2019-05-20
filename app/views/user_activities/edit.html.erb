@@ -5,7 +5,7 @@
 	<img src="<%= @user_activity.activity.photo.normal %>" ><br><br>
 	<div class="useract_fecha">
 		<% if user_signed_in? && can?(:update, @user_activity) %>
-			<%= form_with model: @user_activity, url: update_user_activity_path(@user,@user_activity.activity.id), method: :patch, local: true do |f| %>
+			<%= form_with model: @user_activity, url: user_activity_path(@user_activity), method: :patch, local: true do |f| %>
 
 				<%= f.label :fecha_actividad %>
 				<%= f.text_field :start, id: :event_start %><br><br>

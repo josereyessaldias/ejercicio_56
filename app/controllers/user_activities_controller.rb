@@ -1,14 +1,14 @@
 class UserActivitiesController < ApplicationController
 	
   def create
-  @activity = UserActivity.new
-  @activity.user_id = params[:user_id]
-  @activity.activity_id = params[:activity_id]
-  @activity.status = params[:status]
-  @activity.title = "#{Activity.find(params[:activity_id]).category.name}: #{Activity.find(params[:activity_id]).name}"
-  authorize! :create, @activity
-  @activity.save
-  redirect_to edit_user_activity_path(@activity.user_id,@activity.activity.id)
+  @user_activity = UserActivity.new
+  @user_activity.user_id = params[:user_id]
+  @user_activity.activity_id = params[:activity_id]
+  @user_activity.status = params[:status]
+  @user_activity.title = "#{Activity.find(params[:activity_id]).category.name}: #{Activity.find(params[:activity_id]).name}"
+  authorize! :create, @user_activity
+  @user_activity.save
+  redirect_to edit_user_activity_path(@user_activity.id)
   end
 
   def edit
@@ -19,9 +19,9 @@ class UserActivitiesController < ApplicationController
 
 
   def update
-    @activity = UserActivity.where(user_id: params[:user_id], activity_id: params[:activity_id]).first
-    authorize! :update, @activity
-    @activity.update(start: params[:user_activity][:start])
+    @user_activity = UserActivity.find(params[:id])
+    authorize! :update, @user_activity
+    @user_activity.update(start: params[:user_activity][:start])
     if params[:user_activity][:photo] != nil
       @actuser_photo = ActuserPhoto.new
       @actuser_photo.photo = params[:user_activity][:photo]
@@ -39,9 +39,9 @@ class UserActivitiesController < ApplicationController
 
 
   def destroy
-  	@activity = UserActivity.where(user_id: params[:user_id], activity_id: params[:activity_id]).first
-  	authorize! :destroy, @activity
-    @activity.destroy
+  	@user_activity = UserActivity.find(params[:id])
+  	authorize! :destroy, @user_activity
+    @user_activity.destroy
     redirect_to user_path(current_user), notice: 'La actividad fue eliminada'
   end
 

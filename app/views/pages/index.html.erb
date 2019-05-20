@@ -1,7 +1,7 @@
 
 <div style="display: none">
 <% if user_signed_in? %>
-	<%= form_with model: @activity, url: asigne_activity_path(current_user), method: :post, local: true do |f| %>
+	<%= form_with model: @activity, url: user_activities_path, method: :post, local: true do |f| %>
 
 		<%= f.label :registrar_actividad %>
 		<%= f.collection_select :activity_id, @user_activities, :id, :name, :prompt => true %>
@@ -52,7 +52,7 @@
 				</div>
 				<div class="col-9">
 					<p class="texto-index"><%= link_to evento.user.name, user_path(evento.user_id) %> <%= evento.activity.category.past %>
-					<%= link_to evento.activity.name, activity_path(evento.activity_id) %><br>
+					<%= link_to evento.activity.name, activity_path(evento.activity.id) %><br>
 					Categoría: <%= evento.activity.category.sustantivo %></p>
 				</div>
 				<div>
