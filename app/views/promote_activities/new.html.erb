@@ -3,7 +3,7 @@
 <h5>Elija una actividad a promocionar</h5>
 
 <% if user_signed_in? %>
-	<%= form_with model: @promote_activity, url: create_promote_path(current_user.id), method: :post, local: true do |f| %>
+	<%= form_with model: @promote_activity, url: promote_activities_path, method: :post, local: true do |f| %>
 
 		<%= f.label :activity %>
 		<%= f.collection_select :activity_id, @activities, :id, :name, :prompt => true %><br>

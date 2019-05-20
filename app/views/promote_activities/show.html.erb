@@ -22,7 +22,7 @@
 				<td>
 					<% if promote.payed? %>
 					<% else %>
-						<%= link_to 'Borrar promoción', destroy_promote_path(promote.id), method: :delete %>
+						<%= link_to 'Borrar promoción', promote_activity_path(promote.id), method: :delete %>
 					<% end %>	
 				</td>
 			</tr>

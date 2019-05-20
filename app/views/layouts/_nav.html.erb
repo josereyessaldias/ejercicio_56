@@ -11,9 +11,9 @@
 
           <strong><%= link_to current_user.name, user_path(current_user), :class => 'nav-elemento' %></strong>
 
-          <%= link_to 'Promocionar Actividad', new_promote_path, :class => 'nav-elemento' %>
+          <%= link_to 'Promocionar Actividad', new_promote_activity_path, :class => 'nav-elemento' %>
 
-          <%= link_to 'Historial Promociones', promote_activities_path(current_user), :class => 'nav-elemento' %>
+          <%= link_to 'Historial Promociones', promote_activity_path(current_user.id), :class => 'nav-elemento' %>
 
           <%= link_to 'Salir', destroy_user_session_path, method: :delete, :class => 'nav-elemento' %>
 
