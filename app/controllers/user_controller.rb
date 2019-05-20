@@ -22,7 +22,6 @@ class UserController < ApplicationController
       end
     end
 
-
     @trek = UserActivity.where(user_id: params[:id])
     @trekking = []
     @trek.each do |i|
@@ -36,5 +35,17 @@ class UserController < ApplicationController
       marker.lng trek.activity.longitude
       marker.infowindow trek.activity.name
     end
+  end
+
+
+  def user_calendar
+    @user = User.find(params[:id])
+    @act_user_por_realizar = UserActivity.where(user_id: params[:id], status: 'por_hacer')
+  end
+
+  def update_calendar
+    @user_activity = UserActivity.find(params[:activity_id])
+    authorize! :update_calendar, @user_activity
+    @user_activity.update(start: params[:user_activity][:start])
   end
 end

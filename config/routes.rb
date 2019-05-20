@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'pages/politica'
 
-  get 'user_calendar/:user_id', to: 'pages#user_calendar', as: 'user_calendar'
-  patch 'edit_calendar/:activity_id', to: 'user_activities#update_calendar', as: 'update_user_calendar'
+  get 'user_calendar/:id', to: 'user#user_calendar', as: 'user_calendar'
+  patch 'edit_calendar/:activity_id', to: 'user#update_calendar', as: 'update_user_calendar'
   
  
 

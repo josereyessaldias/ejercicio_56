@@ -31,12 +31,6 @@ class UserActivitiesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def update_calendar
-    @activity = UserActivity.find(params[:activity_id])
-    authorize! :update_calendar, @activity
-    @activity.update(start: params[:user_activity][:start])
-  end
-
 
   def destroy
   	@user_activity = UserActivity.find(params[:id])
