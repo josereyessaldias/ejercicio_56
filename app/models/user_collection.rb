@@ -4,4 +4,6 @@ class UserCollection < ApplicationRecord
 
   validates :user_id, uniqueness: { scope: :collection_id,
     message: "Error" }
+
+  enum status: [:siguiendo, :completa]
 end

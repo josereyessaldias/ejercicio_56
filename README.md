@@ -1,8 +1,8 @@
 # README
 
-Habilité el ingreso por medio de facebook, pero sólo funciona en Heroku, no en Localhost. Traté de que se copiara la profile picture desde facebook, pero no lo logré.
+Mejoré el código de las rutas y habilité la posibilidad de registrar Colecciones y que tengan un dueño.
 
-repositorio heroku: https://ejercicio55.herokuapp.com
+repositorio heroku: https://ejercicio56.herokuapp.com
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
