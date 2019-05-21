@@ -3,8 +3,10 @@ class PagesController < ApplicationController
   
   def index
     @collections = []
-    UserCollection.where(user_id: current_user.id).each do |collect|
-      @collections << collect.collection
+    if user_signed_in?
+      UserCollection.where(user_id: current_user.id).each do |collect|
+        @collections << collect.collection
+      end
     end
 
     if params[:q].present?
