@@ -2,7 +2,10 @@ class PagesController < ApplicationController
   authorize_resource :class => PagesController
   
   def index
-    @collections = Collection.all
+    @collections = []
+    UserCollection.where(user_id: current_user.id).each do |collect|
+      @collections << collect.collection
+    end
 
     if params[:q].present?
       @entities = Activity.where('name like ?', "%#{params[:q]}%") + Collection.where('name like ?', "%#{params[:q]}%")

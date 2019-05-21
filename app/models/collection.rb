@@ -5,4 +5,6 @@ class Collection < ApplicationRecord
 
 	has_many :user_collection
 	has_many :users, through: :user_collection
+
+	belongs_to :user, class_name: 'User', foreign_key: :owner_id
 end

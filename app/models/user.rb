@@ -15,6 +15,8 @@ class User < ApplicationRecord
 
   has_many :ownactivity, class_name: 'Activity', foreign_key: :owner_id
 
+  has_many :owncollection, class_name: 'Collection', foreign_key: :owner_id
+
   has_many :contacting, class_name: 'Contact', foreign_key: :user_id
   has_many :contacted, class_name: 'Contact', foreign_key: :followed_id
 

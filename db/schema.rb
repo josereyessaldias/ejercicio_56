@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_154142) do
+ActiveRecord::Schema.define(version: 2019_05_21_011939) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_05_20_154142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.integer "owner_id"
+    t.index ["owner_id"], name: "index_collections_on_owner_id"
   end
 
   create_table "contacts", force: :cascade do |t|

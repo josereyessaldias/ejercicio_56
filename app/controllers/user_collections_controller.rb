@@ -8,4 +8,10 @@ class UserCollectionsController < ApplicationController
 		@user_collection.save
 		redirect_to root_path
 	end
+
+	def destroy
+		@user_collection =UserCollection.where(user_id: current_user.id, collection_id: params[:id]).first
+		@user_collection.destroy
+		redirect_to root_path
+	end
 end
