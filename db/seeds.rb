@@ -23,8 +23,8 @@ User.create(name:"Ganso",email:"ganso@ganso.ganso",password:'123456')
 User.create(name:"Gato",email:"gato@gato.gato",password:'123456')
 
 
-Collection.create(name:"Trekkings Valle del Mapocho",remote_photo_url:"http://www.wkndheroes.com/wp-content/uploads/2017/11/travesia-los-azules-15-1200x640.jpg")
-Collection.create(name:"Mejores Películas año 1991, Taschen",remote_photo_url:"https://cdn.taschen.com/media/images/1640/25_fav_movies_of_the_90s_ju_gb_open_0036_0037_44944_1412291520_id_676321.jpg")
+Collection.create(name:"Trekkings Valle del Mapocho",remote_photo_url:"http://www.wkndheroes.com/wp-content/uploads/2017/11/travesia-los-azules-15-1200x640.jpg",owner_id:1)
+Collection.create(name:"Mejores Películas año 1991, Taschen",remote_photo_url:"https://cdn.taschen.com/media/images/1640/25_fav_movies_of_the_90s_ju_gb_open_0036_0037_44944_1412291520_id_676321.jpg",owner_id:1)
 
 
 @user = User.first.id
